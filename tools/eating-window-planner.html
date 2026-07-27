@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eating Window Planner - Schedule Your Fasts</title>
+<meta name="description" content="Align your eating eating-window-planner with your sleep schedule, work hours, and workout times. Get a personalized fasting protocol.">
+<meta name="author" content="Sarah Patel">
+<meta property="og:title" content="Eating Window Planner - Schedule Your Fasts">
+<meta property="og:description" content="Align your eating eating-window-planner with your sleep schedule, work hours, and workout times. Get a personalized fasting protocol.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fastingtool.org/tools/eating-window-planner.html">
+<meta property="og:image" content="https://fastingtool.org/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fastingtool.org/tools/eating-window-planner.html">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Eating Window Planner","applicationCategory":"HealthApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Align eating eating-window-planner with sleep, work, and workout schedules.","url":"https://fastingtool.org/tools/eating-window-planner.html"}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fastingtool.org/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://fastingtool.org/tools/index.html"},
+    {"@type": "ListItem", "position": 3, "name": "🍽️ Eating Window Planner"}
+  ]
+}
+</script>
+</head>
+<body data-page="tool">
+<!-- Navigation -->
+<nav class="ft-nav">
+  <div class="ft-nav-container">
+    <a href="../index.html" class="ft-logo">
+      <div class="ft-logo-icon">⏱️</div>
+      <span>FastingTool.org</span>
+    </a>
+    <ul class="ft-nav-links" id="navLinks">
+      <li><a href="../index.html" class="">Home</a></li>
+      <li><a href="../tools/index.html" class="active">Tools</a></li>
+      <li><a href="../blog/index.html" class="">Blog</a></li>
+      <li><a href="../about.html" class="">About</a></li>
+      <li><a href="../contact.html" class="">Contact</a></li>
+      <li><a href="../faq.html" class="">FAQ</a></li>
+    </ul>
+    <button class="ft-mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+<div class="ft-breadcrumb"><a href="../../index.html">Home</a> <span class="ft-breadcrumb-sep">›</span> <a href="../index.html">Tools</a> <span class="ft-breadcrumb-sep">›</span> <span class="ft-breadcrumb-current">Window Planner</span></div>
+<section class="ft-calc-section" style="padding-top:40px;"><div class="ft-calc-container">
+<div class="ft-section-header"><h1>🍽️ Eating Window Planner</h1><p>Align your eating eating-window-planner with your sleep schedule, work hours, and workout times.</p></div>
+<div class="ft-ad-slot" data-ad-slot="tool_top" data-ad="tool_top" class="ft-ad-slot has-content"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+<div class="ft-card"><div class="ft-card-title">📋 Your Schedule</div>
+<div class="ft-form-grid">
+<div class="ft-form-group"><label>Wake Up Time</label><input type="time" id="wakeTime" value="07:00"></div>
+<div class="ft-form-group"><label>Sleep Time</label><input type="time" id="sleepTime" value="23:00"></div>
+<div class="ft-form-group"><label>Work Start</label><input type="time" id="workStart" value="09:00"></div>
+<div class="ft-form-group"><label>Work End</label><input type="time" id="workEnd" value="18:00"></div>
+<div class="ft-form-group"><label>Fasting Protocol</label><select id="protocol"><option value="16">16:8 (Beginner)</option><option value="18" selected>18:6 (Intermediate)</option><option value="20">20:4 (Advanced)</option><option value="24">OMAD (24:0)</option></select></div>
+<div class="ft-form-group"><label>Workout Timing</label><select id="workoutTime"><option value="fasted" selected>Fasted (before first meal)</option><option value="fed">Fed (after first meal)</option><option value="none">No workout</option></select></div>
+</div>
+<div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;"><button class="ft-btn ft-btn-primary" onclick="planWindow()">📅 Plan My Window</button><button class="ft-btn ft-btn-secondary" onclick="loadSampleWin()">📊 Load My Schedule</button><button class="ft-btn ft-btn-danger" onclick="resetWin()">🗑️ Reset</button></div>
+</div>
+<div class="ft-result-box" id="resultBox" style="display:none;"><div class="ft-result-header"><div class="ft-result-title">Your Personalized Protocol</div><span class="ft-result-badge ft-badge-success">Ready</span></div>
+<div class="ft-metric-grid"><div class="ft-metric"><div class="ft-metric-value" id="resultBf">--:--</div><div class="ft-metric-label">Break Fast</div></div><div class="ft-metric"><div class="ft-metric-value" id="resultLm">--:--</div><div class="ft-metric-label">Last Meal</div></div><div class="ft-metric"><div class="ft-metric-value" id="resultFast">--</div><div class="ft-metric-label">Fasting Hours</div></div><div class="ft-metric"><div class="ft-metric-value" id="resultEat">--</div><div class="ft-metric-label">Eating Hours</div></div></div>
+<div style="background:var(--ft-light);border-radius:var(--ft-radius);padding:16px;margin-top:16px;"><strong>💪 Workout Recommendation:</strong> <span id="resultWorkout">--</span></div></div>
+<div class="ft-card"><div class="ft-card-title">⏰ Daily Timeline</div><div class="ft-timeline" id="timeline"></div></div>
+<div class="ft-card"><div class="ft-card-title">📊 24-Hour Window Visualization</div><div class="ft-chart-container"><canvas id="winChart" class="ft-chart-canvas" width="800" height="200"></canvas></div></div>
+<div class="ft-card"><div class="ft-card-title">🔄 Plan History</div><div style="overflow-x:auto;"><table class="ft-table"><thead><tr><th>Date</th><th>Protocol</th><th>Break Fast</th><th>Last Meal</th><th>Workout</th></tr></thead><tbody id="winHistoryBody"><tr><td colspan="5" style="text-align:center;color:var(--ft-text-light);">No saved plans yet.</td></tr></tbody></table></div><div style="margin-top:16px;"><button class="ft-btn ft-btn-secondary" onclick="exportWin()">📥 Export CSV</button></div></div>
+
+<div class="ft-ad-slot has-content" data-ad-slot="tool_middle" data-ad="tool_middle"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+
+    <div class="ft-related-section"><h3 style="font-size:1.2rem;font-weight:700;color:var(--ft-dark);margin-bottom:20px;">Related Articles</h3><div class="ft-related-grid">
+<a href="../blog/social-cost-of-fasting.html" class="ft-related-card"><div class="ft-related-emoji">🍻</div><div class="ft-related-title">The Social Cost of Intermittent Fasting</div><div class="ft-related-meta">Lifestyle · 7 min</div></a>
+<a href="../blog/breaking-fast-food-energy.html" class="ft-related-card"><div class="ft-related-emoji">🍳</div><div class="ft-related-title">What Breaking My Fast With Different Foods Did to My Energy</div><div class="ft-related-meta">Food Experiments · 5 min</div></a>
+<a href="../blog/handle-hunger-without-cheating.html" class="ft-related-card"><div class="ft-related-emoji">🧠</div><div class="ft-related-title">How I Handle Hunger During a Fast</div><div class="ft-related-meta">Tips & Tricks · 6 min</div></a>
+</div><h3 style="font-size:1.2rem;font-weight:700;color:var(--ft-dark);margin:32px 0 20px;">Recommended Tools</h3><div class="ft-related-grid">
+<a href="fasting-session-tracker.html" class="ft-related-card"><div class="ft-related-emoji">⏱️</div><div class="ft-related-title">Session Tracker</div><div class="ft-related-meta">Log your fasts</div></a>
+<a href="metabolic-analyzer.html" class="ft-related-card"><div class="ft-related-emoji">🔥</div><div class="ft-related-title">Metabolic Analyzer</div><div class="ft-related-meta">Understand your body</div></a>
+</div></div>
+<div style="text-align:center;margin-top:24px;font-size:0.8rem;color:var(--ft-text-light);">🔒 All data stays in your browser — we never see it.</div>
+</div></section>
+<!-- Footer -->
+<div class="ft-ad-slot" data-ad-slot="tool_bottom" data-ad="tool_bottom" class="ft-ad-slot has-content"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+
+<footer class="ft-footer">
+  <div class="ft-footer-container">
+    <div>
+      <div class="ft-footer-brand">
+        <div class="ft-logo-icon" style="width:28px; height:28px; font-size:0.9rem;">⏱️</div>
+        FastingTool.org
+      </div>
+      <p class="ft-footer-desc">A personal fasting experiment turned into a free tool for everyone. All data stays in your browser — we never see it.</p>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="../tools/fasting-session-tracker.html">Session Tracker</a></li>
+        <li><a href="../tools/metabolic-analyzer.html">Metabolic Analyzer</a></li>
+        <li><a href="../tools/eating-window-planner.html">Window Planner</a></li>
+        <li><a href="../tools/fasting-trend-charts.html">Trend Charts</a></li>
+        <li><a href="../tools/fasting-goal-planner.html">Goal Planner</a></li>
+        <li><a href="../tools/fasting-export-report.html">Export Report</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Content</h4>
+      <ul>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../disclosure.html">Disclosure</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../tools/index.html">Tools</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-footer-bottom">
+    <p>© 2024 FastingTool.org · Made with 💜 in Austin, TX · <a href="mailto:hello@fastingtool.org" style="color:rgba(167,139,250,0.8);">hello@fastingtool.org</a></p>
+    <p style="margin-top:8px; font-size:0.75rem; color:rgba(255,255,255,0.3);">Disclaimer: This tool is for informational purposes only. Consult a healthcare provider before starting any fasting regimen.</p>
+  </div>
+</footer>
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+<script src="../ads-loader.js"></script>
+<script>
+const WIN_KEY = 'ft_window';
+function loadWin() { try { return JSON.parse(localStorage.getItem(WIN_KEY)) || {}; } catch(e) { return {}; } }
+function saveWin(d) { localStorage.setItem(WIN_KEY, JSON.stringify(d)); }
+
+function planWindow() {
+  const wake = document.getElementById('wakeTime').value;
+  const sleep = document.getElementById('sleepTime').value;
+  const workout = document.getElementById('workoutTime').value;
+  const protocol = document.getElementById('protocol').value;
+  const workStart = document.getElementById('workStart').value;
+  const workEnd = document.getElementById('workEnd').value;
+  if (!wake || !sleep) { alert('Please enter wake and sleep times.'); return; }
+  const fastingHours = parseInt(protocol);
+  const eatingHours = 24 - fastingHours;
+  const [wakeH, wakeM] = wake.split(':').map(Number);
+  const wakeMinutes = wakeH * 60 + wakeM;
+  const breakFastMinutes = wakeMinutes + 60;
+  const lastMealMinutes = breakFastMinutes + eatingHours * 60;
+  const breakFastH = Math.floor(breakFastMinutes / 60) % 24;
+  const breakFastM = breakFastMinutes % 60;
+  const lastMealH = Math.floor(lastMealMinutes / 60) % 24;
+  const lastMealM = lastMealMinutes % 60;
+  const bfTime = String(breakFastH).padStart(2,'0') + ':' + String(breakFastM).padStart(2,'0');
+  const lmTime = String(lastMealH).padStart(2,'0') + ':' + String(lastMealM).padStart(2,'0');
+  let workoutRec = 'Anytime during your eating eating-window-planner works.';
+  if (workout === 'fasted') { workoutRec = 'Workout at ' + wake + ' (fasted), then break fast at ' + bfTime + '.'; }
+  else if (workout === 'fed') { workoutRec = 'Break fast at ' + bfTime + ', workout 30-60 min after.'; }
+  const schedule = [
+    {time: wake, activity: 'Wake up. Black coffee or water.'},
+    {time: String(Math.floor((wakeMinutes+30)/60)%24).padStart(2,'0')+':'+String((wakeMinutes+30)%60).padStart(2,'0'), activity: 'Morning work (fasted focus peak)'},
+    {time: bfTime, activity: '🍽️ BREAK FAST — First meal'},
+    {time: String(Math.floor((breakFastMinutes+120)/60)%24).padStart(2,'0')+':'+String((breakFastMinutes+120)%60).padStart(2,'0'), activity: 'Afternoon work / meetings'},
+    {time: String(Math.floor((lastMealMinutes-120)/60)%24).padStart(2,'0')+':'+String((lastMealMinutes-120)%60).padStart(2,'0'), activity: 'Pre-dinner snack (if needed)'},
+    {time: lmTime, activity: '🍽️ LAST MEAL — Close eating eating-window-planner'},
+    {time: String(Math.floor((lastMealMinutes+60)/60)%24).padStart(2,'0')+':'+String((lastMealMinutes+60)%60).padStart(2,'0'), activity: 'Evening wind-down'},
+    {time: sleep, activity: '😴 Sleep'}
+  ];
+  const data = { wake, sleep, workout, protocol, workStart, workEnd, bfTime, lmTime, schedule, date: new Date().toISOString() };
+  const saved = loadWin(); saved.last = data; if (!saved.history) saved.history = []; saved.history.push(data); saveWin(saved);
+  document.getElementById('resultBf').textContent = bfTime;
+  document.getElementById('resultLm').textContent = lmTime;
+  document.getElementById('resultFast').textContent = fastingHours + ' hrs';
+  document.getElementById('resultEat').textContent = eatingHours + ' hrs';
+  document.getElementById('resultWorkout').textContent = workoutRec;
+  document.getElementById('resultBox').style.display = 'block';
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = schedule.map(function(item) { return '<div class="ft-timeline-item"><div class="ft-timeline-time">' + item.time + '</div><div class="ft-timeline-content">' + item.activity + '</div></div>'; }).join('');
+  renderWinHistory(); renderWinChart(breakFastMinutes, lastMealMinutes);
+}
+
+function renderWinChart(bf, lm) {
+  const canvas = document.getElementById('winChart'); const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height; ctx.clearRect(0, 0, w, h);
+  const barY = h/2 - 20, barH = 40, barX = 40, barW = w - 80;
+  ctx.fillStyle = '#e9d5ff'; ctx.fillRect(barX, barY, barW, barH);
+  const eatStart = (bf / 1440) * barW, eatW = ((lm - bf) / 1440) * barW;
+  ctx.fillStyle = '#7c3aed'; ctx.fillRect(barX + eatStart, barY, eatW, barH);
+  ctx.fillStyle = '#1e1b4b'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+  ctx.fillText('EATING WINDOW', barX + eatStart + eatW/2, barY + barH/2 + 4);
+  ctx.fillStyle = '#9ca3af'; ctx.font = '10px sans-serif';
+  for (let i = 0; i <= 24; i += 4) { const x = barX + (i/24) * barW; ctx.fillText(i + 'h', x, barY + barH + 20); }
+  ctx.fillStyle = '#6b7280'; ctx.font = '11px sans-serif'; ctx.textAlign = 'left';
+  ctx.fillText('🟣 Eating Window  |  ⬜ Fasting Period', barX, h - 20);
+}
+
+function renderWinHistory() {
+  const saved = loadWin(); const tbody = document.getElementById('winHistoryBody');
+  if (!saved.history || saved.history.length === 0) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--ft-text-light);">No saved plans yet.</td></tr>'; return; }
+  tbody.innerHTML = saved.history.slice(-5).reverse().map(function(d) { return '<tr><td>' + d.date.slice(0,10) + '</td><td>' + d.protocol + '</td><td>' + d.bfTime + '</td><td>' + d.lmTime + '</td><td>' + d.workout + '</td></tr>'; }).join('');
+}
+
+function exportWin() { const saved = loadWin(); if (!saved.last) { alert('No plan to export.'); return; } const d = saved.last; let csv = 'Time,Activity\n'; d.schedule.forEach(function(item) { csv += item.time + ',' + item.activity.replace(/,/g, '') + '\n'; }); const blob = new Blob([csv], {type: 'text/csv'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'eating-window-plan.csv'; a.click(); }
+function resetWin() { if (!confirm('Clear all eating-window-planner plans?')) return; localStorage.removeItem(WIN_KEY); document.getElementById('resultBox').style.display = 'none'; document.getElementById('timeline').innerHTML = ''; const canvas = document.getElementById('winChart'); const ctx = canvas.getContext('2d'); ctx.clearRect(0, 0, canvas.width, canvas.height); renderWinHistory(); }
+function loadSampleWin() { document.getElementById('wakeTime').value = '07:00'; document.getElementById('sleepTime').value = '23:00'; document.getElementById('workoutTime').value = 'fasted'; document.getElementById('protocol').value = '18'; document.getElementById('workStart').value = '09:00'; document.getElementById('workEnd').value = '18:00'; planWindow(); }
+renderWinHistory();
+</script>
+</body></html>
