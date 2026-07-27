@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FastingTool.org - Intermittent Fasting Calculator & Tracker</title>
+<meta name="description" content="Free privacy-first fasting tools. Track sessions, analyze metabolism, plan eating windows, and visualize fasting-trend-charts. No signup needed.">
+<meta name="author" content="Sarah Patel">
+<meta property="og:title" content="FastingTool.org - Intermittent Fasting Calculator & Tracker">
+<meta property="og:description" content="Free privacy-first fasting tools. Track sessions, analyze metabolism, plan eating windows, and visualize fasting-trend-charts. No signup needed.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fastingtool.org/">
+<meta property="og:image" content="https://fastingtool.org/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fastingtool.org/">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "FastingTool.org",
+  "url": "https://fastingtool.org/",
+  "description": "Free privacy-first intermittent fasting calculator and fasting-session-tracker",
+  "publisher": {
+    "@type": "Organization",
+    "name": "FastingTool.org",
+    "logo": {"@type": "ImageObject", "url": "https://fastingtool.org/images/logo.png"}
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fastingtool.org/"}
+  ]
+}
+</script>
+
+</head>
+<body data-page="home">
+
+<!-- Navigation -->
+<nav class="ft-nav">
+  <div class="ft-nav-container">
+    <a href="index.html" class="ft-logo">
+      <div class="ft-logo-icon">⏱️</div>
+      <span>FastingTool.org</span>
+    </a>
+    <ul class="ft-nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="tools/index.html" class="">Tools</a></li>
+      <li><a href="blog/index.html" class="">Blog</a></li>
+      <li><a href="about.html" class="">About</a></li>
+      <li><a href="contact.html" class="">Contact</a></li>
+      <li><a href="faq.html" class="">FAQ</a></li>
+    </ul>
+    <button class="ft-mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="ft-hero">
+  <div class="ft-hero-container">
+    <div>
+      <h1>Track Your Fasting.<br>Visualize Your Progress.</h1>
+      <p class="ft-hero-subtitle">I'm Sarah, a designer from Austin who turned my intermittent fasting experiments into data art. 6 free tools to plan eating windows, analyze metabolism, and track fasting-trend-charts — no guesswork, just numbers.</p>
+      <a href="tools/fasting-session-tracker.html" class="ft-hero-cta">🚀 Start Tracking Free →</a>
+      <div class="ft-hero-stats">
+        <div class="ft-stat-card">
+          <span class="ft-stat-number">6</span>
+          <span class="ft-stat-label">Professional Tools</span>
+        </div>
+        <div class="ft-stat-card">
+          <span class="ft-stat-number">100%</span>
+          <span class="ft-stat-label">Free Forever</span>
+        </div>
+        <div class="ft-stat-card">
+          <span class="ft-stat-number">0</span>
+          <span class="ft-stat-label">Signups Needed</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-hero-visual">
+      <div class="ft-hero-chart">
+        <div style="font-size:0.85rem;color:rgba(255,255,255,0.6);margin-bottom:12px;">Sarah's 30-Day Fasting Consistency</div>
+        <div class="ft-chart-bar">
+          <div class="ft-bar" style="height:45%;"><span class="ft-bar-label">W1</span></div>
+          <div class="ft-bar" style="height:62%;"><span class="ft-bar-label">W2</span></div>
+          <div class="ft-bar" style="height:78%;"><span class="ft-bar-label">W3</span></div>
+          <div class="ft-bar" style="height:85%;"><span class="ft-bar-label">W4</span></div>
+          <div class="ft-bar" style="height:71%;"><span class="ft-bar-label">W5</span></div>
+          <div class="ft-bar" style="height:90%;"><span class="ft-bar-label">W6</span></div>
+          <div class="ft-bar" style="height:88%;"><span class="ft-bar-label">W7</span></div>
+        </div>
+        <div style="font-size:0.75rem;color:rgba(255,255,255,0.4);text-align:center;margin-top:28px;">% of target fasting hours achieved</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Home Top -->
+<div class="ft-ad-slot" data-ad-slot="hero_top" data-ad="hero_top" class="ft-ad-slot has-content">
+  <span class="ft-ad-label">Advertisement</span>
+  <span class="ft-ad-placeholder">Ad space reserved — 100% × 250px</span>
+</div>
+
+<!-- Tools Section -->
+<section class="ft-calc-section">
+  <div class="ft-calc-container">
+    <div class="ft-section-header">
+      <h2>6 Professional Fasting Tools</h2>
+      <p>Everything I wish I had when I started my fasting journey in 2023. Each tool solves a specific problem I ran into.</p>
+    </div>
+    <div class="ft-tool-grid">
+      <a href="tools/fasting-session-tracker.html" class="ft-tool-card">
+        <div class="ft-tool-card-icon">⏱️</div>
+        <div class="ft-tool-card-title">Session Tracker</div>
+        <div class="ft-tool-card-desc">Log start and end times, track your fasting streaks, and see your consistency score. The tool I use every single day.</div>
+        <div class="ft-tool-card-meta">Try it free →</div>
+      </a>
+      <a href="tools/metabolic-analyzer.html" class="ft-tool-card">
+        <div class="ft-tool-card-icon">🔥</div>
+        <div class="ft-tool-card-title">Metabolic Analyzer</div>
+        <div class="ft-tool-card-desc">Estimate ketosis timing, autophagy windows, and metabolic-analyzer switching based on your body data.</div>
+        <div class="ft-tool-card-meta">Analyze now →</div>
+      </a>
+      <a href="tools/eating-window-planner.html" class="ft-tool-card">
+        <div class="ft-tool-card-icon">🍽️</div>
+        <div class="ft-tool-card-title">Window Planner</div>
+        <div class="ft-tool-card-desc">Align your eating eating-window-planner with your sleep schedule, work hours, and workout times. Get a personalized protocol.</div>
+        <div class="ft-tool-card-meta">Plan your eating-window-planner →</div>
+      </a>
+      <a href="tools/fasting-trend-charts.html" class="ft-tool-card">
+        <div class="ft-tool-card-icon">📈</div>
+        <div class="ft-tool-card-title">Trend Charts</div>
+        <div class="ft-tool-card-desc">Visualize your fasting patterns with interactive charts. Add sample data or load from your session history.</div>
+        <div class="ft-tool-card-meta">View fasting-trend-charts →</div>
+      </a>
+      <a href="tools/fasting-goal-planner.html" class="ft-tool-card">
+        <div class="ft-tool-card-icon">🎯</div>
+        <div class="ft-tool-card-title">Goal Planner</div>
+        <div class="ft-tool-card-desc">Set your fasting fasting-goal-planner, get milestone predictions, and see exactly when you'll hit your targets.</div>
+        <div class="ft-tool-card-meta">Set fasting-goal-planner →</div>
+      </a>
+      <a href="tools/fasting-export-report.html" class="ft-tool-card">
+        <div class="ft-tool-card-icon">📄</div>
+        <div class="ft-tool-card-title">Export Report</div>
+        <div class="ft-tool-card-desc">Download your fasting history as CSV or formatted fasting-export-report. Share with your doctor or keep personal records.</div>
+        <div class="ft-tool-card-meta">Export data →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Home Middle -->
+<div class="ft-ad-slot" data-ad-slot="middle" data-ad="home_middle" class="ft-ad-slot has-content">
+  <span class="ft-ad-label">Advertisement</span>
+  <span class="ft-ad-placeholder">Ad space reserved — 100% × 250px</span>
+</div>
+
+<!-- Latest Articles Section -->
+<section class="ft-section ft-section-alt">
+  <div class="ft-container">
+    <div class="ft-section-header">
+      <h2>Latest from Sarah's Fasting Journal</h2>
+      <p>Real experiments, real data, real mistakes. Follow along as I figure this out.</p>
+    </div>
+    <!-- INDEX_ARTICLES_START -->
+
+
+
+
+
+
+
+
+    <div class="ft-blog-grid" id="latestArticles">
+      <a href="./blog/omad-diet-social-costs-2026.html" class="ft-blog-card">
+        <div class="ft-blog-card-img"><img src="./images/blog/omad-diet-social-costs-2026.jpg" alt="Omad Diet Social Costs 2026" width="400" height="225" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px 12px 0 0;"></div>
+        <div class="ft-blog-card-body">
+          <span class="ft-blog-card-tag">Year Review</span>
+          <div class="ft-blog-card-title">Omad Diet Social Costs 2026</div>
+          <div class="ft-blog-card-excerpt">I ate one meal a day for six months. OMAD. One Meal A Day. It worked for weight loss. I lost 22 pounds. My energy was stable. My focus was sharp. And ...</div>
+          <div class="ft-blog-card-meta">July 23, 2026</div>
+        </div>
+      </a>
+<a href="./blog/austin-heat-wave-fasting-break.html" class="ft-blog-card">
+        <div class="ft-blog-card-img"><img src="./images/blog/austin-heat-wave-fasting-break.jpg" alt="Austin Heat Wave Fasting Break" width="400" height="225" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px 12px 0 0;"></div>
+        <div class="ft-blog-card-body">
+          <span class="ft-blog-card-tag">Year Review</span>
+          <div class="ft-blog-card-title">Austin Heat Wave Fasting Break</div>
+          <div class="ft-blog-card-excerpt">Why I Broke My Fast at 2 PM During Austin's Hottest Day on Record — And Why My Body Thanked Me for It By Dr. Marcus Whitfield, Austin, TX Published: J...</div>
+          <div class="ft-blog-card-meta">July 07, 2026</div>
+        </div>
+      </a>
+<a href="./blog/omad-30-days-lost-muscle-not-fat.html" class="ft-blog-card">
+        <div class="ft-blog-card-img"><img src="./images/blog/omad-30-days-lost-muscle-not-fat.jpg" alt="Omad 30 Days Lost Muscle Not Fat" width="400" height="225" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px 12px 0 0;"></div>
+        <div class="ft-blog-card-body">
+          <span class="ft-blog-card-tag">Year Review</span>
+          <div class="ft-blog-card-title">Omad 30 Days Lost Muscle Not Fat</div>
+          <div class="ft-blog-card-excerpt">The scale said I lost 6 pounds. I was thrilled. Six pounds in 30 days! The internet was right. One meal a day was the secret. The fasting subreddits h...</div>
+          <div class="ft-blog-card-meta">July 06, 2026</div>
+        </div>
+      </a>
+<a href="./blog/the-72-hour-fast-i-failed-at-hour-54.html" class="ft-blog-card">
+        <div class="ft-blog-card-img"><img src="./images/blog/the-72-hour-fast-i-failed-at-hour-54.jpg" alt="The 72 Hour Fast I Failed At Hour 54" width="400" height="225" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px 12px 0 0;"></div>
+        <div class="ft-blog-card-body">
+          <span class="ft-blog-card-tag">Year Review</span>
+          <div class="ft-blog-card-title">The 72 Hour Fast I Failed At Hour 54</div>
+          <div class="ft-blog-card-excerpt">The 72-Hour Fast I Failed at Hour 54 (And Why I Am Glad I Did) I started the fast on a Thursday at 8:00 PM because I am an idiot and I thought the wee...</div>
+          <div class="ft-blog-card-meta">June 25, 2026</div>
+        </div>
+      </a>
+<a href="./blog/i-tried-omad-for-30-days.html" class="ft-blog-card">
+        <div class="ft-blog-card-img"><img src="./images/blog/i-tried-omad-for-30-days.jpg" alt="I Tried Omad For 30 Days" width="400" height="225" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px 12px 0 0;"></div>
+        <div class="ft-blog-card-body">
+          <span class="ft-blog-card-tag">Year Review</span>
+          <div class="ft-blog-card-title">I Tried Omad For 30 Days</div>
+          <div class="ft-blog-card-excerpt">I Tried OMAD for 30 Days. My Doctor Asked If I Was Okay. One meal a day. That's what OMAD means. It's the extreme end of intermittent fasting — the 23...</div>
+          <div class="ft-blog-card-meta">June 24, 2026</div>
+        </div>
+      </a>
+<a href="./blog/cold-plunge-after-morning-fast.html" class="ft-blog-card">
+        <div class="ft-blog-card-img"><img src="./images/blog/cold-plunge-after-morning-fast.jpg" alt="I Tried a Cold Plunge After My Morning Fast. My Body Did Not Expect This." width="400" height="225" loading="lazy" style="width:100%;height:100%;object-fit:cover;border-radius:12px 12px 0 0;"></div>
+        <div class="ft-blog-card-body">
+          <span class="ft-blog-card-tag">Year Review</span>
+          <div class="ft-blog-card-title">I Tried a Cold Plunge After My Morning Fast. My Body Did Not Expect This.</div>
+          <div class="ft-blog-card-excerpt">48-degree water. 16-hour fast. My nervous system got a wake-up call that no meditation could prepare me for.</div>
+          <div class="ft-blog-card-meta">August 15, 2024</div>
+        </div>
+      </a>
+    </div>
+    
+
+
+
+
+
+
+
+<!-- INDEX_ARTICLES_END -->
+    <div class="ft-text-center ft-mt-8">
+      <a href="blog/index.html" class="ft-btn ft-btn-secondary">📚 Read All Articles →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats / Social Proof Section -->
+<section class="ft-section">
+  <div class="ft-container">
+    <div class="ft-section-header">
+      <h2>Why Track Your Fasts?</h2>
+      <p>Most people fail at fasting not because they can't do it, but because they don't know if they're actually doing it.</p>
+    </div>
+    <div class="ft-grid-3">
+      <div class="ft-card ft-text-center">
+        <div class="ft-card-title-icon" style="margin:0 auto 16px;">📊</div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px;">Data Beats Guessing</h3>
+        <p style="font-size:0.9rem;color:var(--ft-text-light);">I thought I was "pretty consistent" until I saw the numbers. I was only hitting my target 60% of the time. Brutal.</p>
+      </div>
+      <div class="ft-card ft-text-center">
+        <div class="ft-card-title-icon" style="margin:0 auto 16px;">🔒</div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px;">Privacy First</h3>
+        <p style="font-size:0.9rem;color:var(--ft-text-light);">Your data stays in your browser. No accounts, no servers, no tracking. I literally cannot access your fasting logs.</p>
+      </div>
+      <div class="ft-card ft-text-center">
+        <div class="ft-card-title-icon" style="margin:0 auto 16px;">🎯</div>
+        <h3 style="font-size:1.1rem;margin-bottom:8px;">Find What Works</h3>
+        <p style="font-size:0.9rem;color:var(--ft-text-light);">16:8 vs 18:6? Carbs vs protein to break a fast? The only way to know is to track and compare.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Teaser -->
+<section class="ft-section ft-section-alt">
+  <div class="ft-container">
+    <div class="ft-section-header">
+      <h2>Common Questions</h2>
+      <p>The stuff I wondered about when I started — and what I learned through trial and error.</p>
+    </div>
+    <div class="ft-grid-2">
+      <div class="ft-card">
+        <h3 style="font-size:1rem;margin-bottom:8px;">❓ What is intermittent fasting?</h3>
+        <p style="font-size:0.9rem;color:var(--ft-text-light);">IF isn't a diet — it's an eating schedule. Instead of telling you what to eat, it tells you when to eat. The most popular format is 16:8.</p>
+      </div>
+      <div class="ft-card">
+        <h3 style="font-size:1rem;margin-bottom:8px;">❓ Is fasting safe?</h3>
+        <p style="font-size:0.9rem;color:var(--ft-text-light);">Not for everyone. Talk to a doctor first if you're pregnant, have diabetes, take medications that require food, or have any serious medical condition.</p>
+      </div>
+      <div class="ft-card">
+        <h3 style="font-size:1rem;margin-bottom:8px;">❓ What can I drink during a fast?</h3>
+        <p style="font-size:0.9rem;color:var(--ft-text-light);">Black coffee, plain tea, and water are generally fine. The debate starts when you add milk, cream, or sugar. I use a splash of oat milk and still see results.</p>
+      </div>
+      <div class="ft-card">
+        <h3 style="font-size:1rem;margin-bottom:8px;">❓ How long until I see results?</h3>
+        <p style="font-size:0.9rem;color:var(--ft-text-light);">Mental clarity improved within a week for me. Weight changes took 3-4 weeks. Track for at least 30 days before judging. <a href="faq.html" style="color:var(--ft-primary);">More FAQ →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ad Slot: Home Footer -->
+<div class="ft-ad-slot" data-ad-slot="footer" data-ad="home_footer" class="ft-ad-slot has-content">
+  <span class="ft-ad-label">Advertisement</span>
+  <span class="ft-ad-placeholder">Ad space reserved — 100% × 250px</span>
+</div>
+
+<!-- Footer -->
+<footer class="ft-footer">
+  <div class="ft-footer-container">
+    <div>
+      <div class="ft-footer-brand">
+        <div class="ft-logo-icon" style="width:28px; height:28px; font-size:0.9rem;">⏱️</div>
+        FastingTool.org
+      </div>
+      <p class="ft-footer-desc">A personal fasting experiment turned into a free tool for everyone. All data stays in your browser — we never see it.</p>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="tools/fasting-session-tracker.html">Session Tracker</a></li>
+        <li><a href="tools/metabolic-analyzer.html">Metabolic Analyzer</a></li>
+        <li><a href="tools/eating-window-planner.html">Window Planner</a></li>
+        <li><a href="tools/fasting-trend-charts.html">Trend Charts</a></li>
+        <li><a href="tools/fasting-goal-planner.html">Goal Planner</a></li>
+        <li><a href="tools/fasting-export-report.html">Export Report</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Content</h4>
+      <ul>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="disclosure.html">Disclosure</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tools/index.html">Tools</a></li>
+        <li><a href="blog/index.html">Blog</a></li>
+        <li><a href="sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-footer-bottom">
+    <p>© 2024 FastingTool.org · Made with 💜 in Austin, TX · <a href="mailto:hello@fastingtool.org" style="color:rgba(167,139,250,0.8);">hello@fastingtool.org</a></p>
+    <p style="margin-top:8px; font-size:0.75rem; color:rgba(255,255,255,0.3);">Disclaimer: This tool is for informational purposes only. Consult a healthcare provider before starting any fasting regimen.</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+<script src="ads-loader.js"></script>
+</body>
+</html>
