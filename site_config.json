@@ -1,0 +1,16 @@
+{
+  "site_name": "FastingTool.org",
+  "domain": "fastingtool.org",
+  "prefix": "ft",
+  "author": "Sarah Patel",
+  "author_short": "Sarah",
+  "language": "en",
+  "category": "Health & Fitness",
+  "subcategory": "Intermittent Fasting Tools",
+  "favicon_emoji": "⏱️",
+  "theme_color": "#7c3aed",
+  "year": 2024,
+  "location": "Austin, TX",
+  "email": "hello@fastingtool.org",
+  "privacy_email": "privacy@fastingtool.org"
+}
