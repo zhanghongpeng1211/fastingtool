@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fasting Session Tracker - Log Your Fasts</title>
+<meta name="description" content="Track your fasting sessions in real-time. Log start and end times, view history, calculate consistency scores, and visualize fasting-trend-charts.">
+<meta name="author" content="Sarah Patel">
+<meta property="og:title" content="Fasting Session Tracker - Log Your Fasts">
+<meta property="og:description" content="Track your fasting sessions in real-time. Log start and end times, view history, calculate consistency scores, and visualize fasting-trend-charts.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fastingtool.org/tools/fasting-session-tracker.html">
+<meta property="og:image" content="https://fastingtool.org/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fastingtool.org/tools/fasting-session-tracker.html">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Fasting Session Tracker",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "Web Browser",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "description": "Real-time fasting session fasting-session-tracker with history, streaks, and consistency scoring.",
+  "url": "https://fastingtool.org/tools/fasting-session-tracker.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fastingtool.org/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://fastingtool.org/tools/index.html"},
+    {"@type": "ListItem", "position": 3, "name": "⏱️ Fasting Session Tracker"}
+  ]
+}
+</script>
+</head>
+<body data-page="tool">
+
+<!-- Navigation -->
+<nav class="ft-nav">
+  <div class="ft-nav-container">
+    <a href="../index.html" class="ft-logo">
+      <div class="ft-logo-icon">⏱️</div>
+      <span>FastingTool.org</span>
+    </a>
+    <ul class="ft-nav-links" id="navLinks">
+      <li><a href="../index.html" class="">Home</a></li>
+      <li><a href="../tools/index.html" class="active">Tools</a></li>
+      <li><a href="../blog/index.html" class="">Blog</a></li>
+      <li><a href="../about.html" class="">About</a></li>
+      <li><a href="../contact.html" class="">Contact</a></li>
+      <li><a href="../faq.html" class="">FAQ</a></li>
+    </ul>
+    <button class="ft-mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<div class="ft-breadcrumb"><a href="../../index.html">Home</a> <span class="ft-breadcrumb-sep">›</span> <a href="../index.html">Tools</a> <span class="ft-breadcrumb-sep">›</span> <span class="ft-breadcrumb-current">Session Tracker</span></div>
+
+<section class="ft-calc-section" style="padding-top:40px;">
+  <div class="ft-calc-container">
+    <div class="ft-section-header">
+      <h1>⏱️ Fasting Session Tracker</h1>
+      <p>Log your fasts, track your streaks, and see your consistency score. All data stays in your browser.</p>
+    </div>
+
+    <div class="ft-ad-slot" data-ad-slot="tool_top" data-ad="tool_top" class="ft-ad-slot has-content">
+      <span class="ft-ad-label">Advertisement</span>
+      <span class="ft-ad-placeholder">Ad space reserved — 100% × 250px</span>
+    </div>
+
+    <div class="ft-card" style="text-align:center;">
+      <div class="ft-card-title" style="justify-content:center;">Current Fast</div>
+      <div id="trackerTimer" style="font-size:3.5rem;font-weight:800;color:var(--ft-primary);font-family:monospace;">00:00:00</div>
+      <div id="trackerStatus" style="color:var(--ft-text-light);margin:8px 0 20px;">No active fast</div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <button id="btnStart" class="ft-btn ft-btn-primary" onclick="startFast()">▶️ Start Fast</button>
+        <button id="btnEnd" class="ft-btn ft-btn-secondary" onclick="endFast()" style="display:none;">⏹️ End Fast</button>
+        <button class="ft-btn ft-btn-danger" onclick="resetTracker()">🗑️ Reset All</button>
+      </div>
+      <div style="margin-top:16px;font-size:0.85rem;color:var(--ft-text-light);">
+        Target: <select id="targetHours" style="padding:4px 8px;border-radius:6px;border:1px solid var(--ft-border);">
+          <option value="16">16 hours</option>
+          <option value="18" selected>18 hours</option>
+          <option value="20">20 hours</option>
+          <option value="24">24 hours</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="ft-card ft-text-center">
+      <div class="ft-card-title" style="justify-content:center;">Today's Progress</div>
+      <div class="ft-progress-ring">
+        <svg width="120" height="120" viewBox="0 0 120 120">
+          <defs><linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#7c3aed"/><stop offset="100%" style="stop-color:#a78bfa"/></linearGradient></defs>
+          <circle class="ft-progress-ring-bg" cx="60" cy="60" r="52"/>
+          <circle id="progressCircle" class="ft-progress-ring-fill" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="326.73"/>
+        </svg>
+      </div>
+      <div id="progressText" style="font-size:1.5rem;font-weight:700;color:var(--ft-dark);">0%</div>
+      <div style="font-size:0.85rem;color:var(--ft-text-light);">of target <span id="targetLabel">18</span> hours</div>
+    </div>
+
+    <div class="ft-card">
+      <div class="ft-card-title">📋 Session History</div>
+      <div style="overflow-x:auto;">
+        <table class="ft-table" id="historyTable">
+          <thead><tr><th>Date</th><th>Start</th><th>End</th><th>Duration</th><th>Target</th><th>Status</th></tr></thead>
+          <tbody id="historyBody"><tr><td colspan="6" style="text-align:center;color:var(--ft-text-light);">No sessions yet. Start your first fast above!</td></tr></tbody>
+        </table>
+      </div>
+      <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="ft-btn ft-btn-secondary" onclick="exportCSV()">📥 Export CSV</button>
+        <button class="ft-btn ft-btn-secondary" onclick="loadSampleData()">📊 Load Sample</button>
+        <button class="ft-btn ft-btn-danger" onclick="clearHistory()">🗑️ Clear History</button>
+      </div>
+    </div>
+
+    <div class="ft-card">
+      <div class="ft-card-title">📊 Your Stats</div>
+      <div class="ft-metric-grid">
+        <div class="ft-metric"><div class="ft-metric-value" id="statTotal">0</div><div class="ft-metric-label">Total Sessions</div></div>
+        <div class="ft-metric"><div class="ft-metric-value" id="statAvg">0h</div><div class="ft-metric-label">Average Duration</div></div>
+        <div class="ft-metric"><div class="ft-metric-value" id="statBest">0h</div><div class="ft-metric-label">Best Fast</div></div>
+        <div class="ft-metric"><div class="ft-metric-value" id="statConsistency">0%</div><div class="ft-metric-label">Consistency Score</div></div>
+      </div>
+    </div>
+
+    <div class="ft-card">
+      <div class="ft-card-title">📈 Last 7 Days</div>
+      <div class="ft-chart-container">
+        <canvas id="trackerChart" class="ft-chart-canvas" width="800" height="300"></canvas>
+      </div>
+    </div>
+
+    
+
+    <div class="ft-ad-slot has-content" data-ad-slot="tool_middle" data-ad="tool_middle"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+
+    <div class="ft-related-section">
+      <h3 style="font-size:1.2rem;font-weight:700;color:var(--ft-dark);margin-bottom:20px;">Related Articles</h3>
+      <div class="ft-related-grid">
+        <a href="../blog/why-i-track-every-hour.html" class="ft-related-card"><div class="ft-related-emoji">⏱️</div><div class="ft-related-title">Why I Started Tracking Every Single Hour</div><div class="ft-related-meta">Fasting Experiments · 6 min</div></a>
+        <a href="../blog/one-year-fasting-data-review.html" class="ft-related-card"><div class="ft-related-emoji">🎉</div><div class="ft-related-title">What 365 Days of Fasting Data Looks Like</div><div class="ft-related-meta">Year Review · 8 min</div></a>
+        <a href="../blog/consistency-score-dropped.html" class="ft-related-card"><div class="ft-related-emoji">📉</div><div class="ft-related-title">My Consistency Score Dropped to 43%</div><div class="ft-related-meta">Honest Updates · 5 min</div></a>
+      </div>
+      <h3 style="font-size:1.2rem;font-weight:700;color:var(--ft-dark);margin:32px 0 20px;">Recommended Tools</h3>
+      <div class="ft-related-grid">
+        <a href="fasting-trend-charts.html" class="ft-related-card"><div class="ft-related-emoji">📈</div><div class="ft-related-title">Trend Charts</div><div class="ft-related-meta">Visualize your patterns</div></a>
+        <a href="fasting-goal-planner.html" class="ft-related-card"><div class="ft-related-emoji">🎯</div><div class="ft-related-title">Goal Planner</div><div class="ft-related-meta">Set and track milestones</div></a>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:24px;font-size:0.8rem;color:var(--ft-text-light);">🔒 All data stays in your browser — we never see it.</div>
+  </div>
+</section>
+
+<!-- Footer -->
+<div class="ft-ad-slot" data-ad-slot="tool_bottom" data-ad="tool_bottom" class="ft-ad-slot has-content">
+      <span class="ft-ad-label">Advertisement</span>
+      <span class="ft-ad-placeholder">Ad space reserved — 100% × 250px</span>
+    </div>
+
+<footer class="ft-footer">
+  <div class="ft-footer-container">
+    <div>
+      <div class="ft-footer-brand">
+        <div class="ft-logo-icon" style="width:28px; height:28px; font-size:0.9rem;">⏱️</div>
+        FastingTool.org
+      </div>
+      <p class="ft-footer-desc">A personal fasting experiment turned into a free tool for everyone. All data stays in your browser — we never see it.</p>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="../tools/fasting-session-tracker.html">Session Tracker</a></li>
+        <li><a href="../tools/metabolic-analyzer.html">Metabolic Analyzer</a></li>
+        <li><a href="../tools/eating-window-planner.html">Window Planner</a></li>
+        <li><a href="../tools/fasting-trend-charts.html">Trend Charts</a></li>
+        <li><a href="../tools/fasting-goal-planner.html">Goal Planner</a></li>
+        <li><a href="../tools/fasting-export-report.html">Export Report</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Content</h4>
+      <ul>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../disclosure.html">Disclosure</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../tools/index.html">Tools</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-footer-bottom">
+    <p>© 2024 FastingTool.org · Made with 💜 in Austin, TX · <a href="mailto:hello@fastingtool.org" style="color:rgba(167,139,250,0.8);">hello@fastingtool.org</a></p>
+    <p style="margin-top:8px; font-size:0.75rem; color:rgba(255,255,255,0.3);">Disclaimer: This tool is for informational purposes only. Consult a healthcare provider before starting any fasting regimen.</p>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+<script src="../ads-loader.js"></script>
+<script>
+const STORAGE_KEY = 'ft_sessions';
+let timerInterval = null;
+let currentStart = null;
+
+function loadSessions() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch(e) { return []; }
+}
+function saveSessions(s) { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); }
+
+function startFast() {
+  currentStart = new Date();
+  document.getElementById('btnStart').style.display = 'none';
+  document.getElementById('btnEnd').style.display = 'inline-flex';
+  document.getElementById('trackerStatus').textContent = 'Fasting in progress...';
+  timerInterval = setInterval(updateTimer, 1000);
+  updateTimer();
+}
+
+function endFast() {
+  if (!currentStart) return;
+  clearInterval(timerInterval);
+  const end = new Date();
+  const duration = (end - currentStart) / 1000;
+  const target = parseInt(document.getElementById('targetHours').value) * 3600;
+  const sessions = loadSessions();
+  sessions.unshift({
+    date: currentStart.toISOString().split('T')[0],
+    start: currentStart.toTimeString().slice(0,5),
+    end: end.toTimeString().slice(0,5),
+    duration: duration,
+    target: target,
+    status: duration >= target ? 'hit' : 'miss'
+  });
+  saveSessions(sessions);
+  currentStart = null;
+  document.getElementById('btnStart').style.display = 'inline-flex';
+  document.getElementById('btnEnd').style.display = 'none';
+  document.getElementById('trackerStatus').textContent = 'Fast logged!';
+  document.getElementById('trackerTimer').textContent = '00:00:00';
+  renderHistory();
+  renderStats();
+  renderChart();
+  updateProgress(0);
+}
+
+function updateTimer() {
+  if (!currentStart) return;
+  const elapsed = Math.floor((new Date() - currentStart) / 1000);
+  const h = String(Math.floor(elapsed/3600)).padStart(2,'0');
+  const m = String(Math.floor((elapsed%3600)/60)).padStart(2,'0');
+  const s = String(elapsed%60).padStart(2,'0');
+  document.getElementById('trackerTimer').textContent = h + ':' + m + ':' + s;
+  const target = parseInt(document.getElementById('targetHours').value) * 3600;
+  updateProgress(Math.min(elapsed/target, 1));
+}
+
+function updateProgress(pct) {
+  const circle = document.getElementById('progressCircle');
+  const circumference = 326.73;
+  circle.style.strokeDashoffset = circumference * (1 - pct);
+  document.getElementById('progressText').textContent = Math.round(pct * 100) + '%';
+  document.getElementById('targetLabel').textContent = document.getElementById('targetHours').value;
+}
+
+function renderHistory() {
+  const sessions = loadSessions();
+  const tbody = document.getElementById('historyBody');
+  if (sessions.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--ft-text-light);">No sessions yet. Start your first fast above!</td></tr>';
+    return;
+  }
+  tbody.innerHTML = sessions.map(function(s) {
+    const durH = Math.floor(s.duration/3600);
+    const durM = Math.floor((s.duration%3600)/60);
+    const targetH = Math.floor(s.target/3600);
+    const statusColor = s.status === 'hit' ? 'color:#16a34a;' : 'color:#dc2626;';
+    const statusText = s.status === 'hit' ? '✅ Hit' : '❌ Miss';
+    return '<tr><td>' + s.date + '</td><td>' + s.start + '</td><td>' + s.end + '</td><td>' + durH + 'h ' + durM + 'm</td><td>' + targetH + 'h</td><td style="' + statusColor + '">' + statusText + '</td></tr>';
+  }).join('');
+}
+
+function renderStats() {
+  const sessions = loadSessions();
+  document.getElementById('statTotal').textContent = sessions.length;
+  if (sessions.length === 0) {
+    document.getElementById('statAvg').textContent = '0h';
+    document.getElementById('statBest').textContent = '0h';
+    document.getElementById('statConsistency').textContent = '0%';
+    return;
+  }
+  const avg = sessions.reduce(function(a,s){ return a + s.duration; }, 0) / sessions.length;
+  const best = Math.max.apply(null, sessions.map(function(s){ return s.duration; }));
+  const hits = sessions.filter(function(s){ return s.status === 'hit'; }).length;
+  document.getElementById('statAvg').textContent = Math.floor(avg/3600) + 'h ' + Math.floor((avg%3600)/60) + 'm';
+  document.getElementById('statBest').textContent = Math.floor(best/3600) + 'h ' + Math.floor((best%3600)/60) + 'm';
+  document.getElementById('statConsistency').textContent = Math.round(hits/sessions.length*100) + '%';
+}
+
+function renderChart() {
+  const sessions = loadSessions().slice(0, 7).reverse();
+  const canvas = document.getElementById('trackerChart');
+  const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height;
+  ctx.clearRect(0, 0, w, h);
+  if (sessions.length === 0) {
+    ctx.fillStyle = '#9ca3af';
+    ctx.font = '14px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('No data yet. Start tracking or load sample data.', w/2, h/2);
+    return;
+  }
+  const maxDur = Math.max.apply(null, sessions.map(function(s){ return s.duration/3600; }).concat([1]));
+  const barW = (w - 80) / sessions.length;
+  const chartH = h - 60;
+  sessions.forEach(function(s, i) {
+    const barH = (s.duration/3600 / maxDur) * chartH * 0.8;
+    const x = 40 + i * barW + barW * 0.2;
+    const y = h - 40 - barH;
+    const grad = ctx.createLinearGradient(x, y, x, y + barH);
+    grad.addColorStop(0, '#a78bfa');
+    grad.addColorStop(1, '#7c3aed');
+    ctx.fillStyle = grad;
+    ctx.fillRect(x, y, barW * 0.6, barH);
+    ctx.fillStyle = '#6b7280';
+    ctx.font = '11px sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(s.date.slice(5), x + barW*0.3, h - 20);
+    ctx.fillStyle = '#1e1b4b';
+    ctx.font = 'bold 12px sans-serif';
+    ctx.fillText(Math.floor(s.duration/3600) + 'h', x + barW*0.3, y - 8);
+  });
+}
+
+function exportCSV() {
+  const sessions = loadSessions();
+  if (sessions.length === 0) { alert('No data to export.'); return; }
+  let csv = 'Date,Start,End,Duration (hours),Target (hours),Status
+';
+  sessions.forEach(function(s) {
+    csv += s.date + ',' + s.start + ',' + s.end + ',' + (s.duration/3600).toFixed(2) + ',' + (s.target/3600).toFixed(0) + ',' + s.status + '
+';
+  });
+  const blob = new Blob([csv], {type: 'text/csv'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'fasting-sessions.csv';
+  a.click();
+}
+
+function loadSampleData() {
+  const sample = [
+    {date:'2024-07-07', start:'21:00', end:'15:00', duration:64800, target:64800, status:'hit'},
+    {date:'2024-07-06', start:'20:30', end:'14:45', duration:51300, target:64800, status:'miss'},
+    {date:'2024-07-05', start:'21:00', end:'15:30', duration:66600, target:64800, status:'hit'},
+    {date:'2024-07-04', start:'20:00', end:'14:00', duration:64800, target:64800, status:'hit'},
+    {date:'2024-07-03', start:'21:30', end:'15:00', duration:63000, target:64800, status:'miss'},
+    {date:'2024-07-02', start:'20:00', end:'14:00', duration:64800, target:64800, status:'hit'},
+    {date:'2024-07-01', start:'21:00', end:'15:00', duration:64800, target:64800, status:'hit'}
+  ];
+  saveSessions(sample);
+  renderHistory();
+  renderStats();
+  renderChart();
+}
+
+function clearHistory() {
+  if (!confirm('Clear all session history? This cannot be undone.')) return;
+  localStorage.removeItem(STORAGE_KEY);
+  renderHistory();
+  renderStats();
+  renderChart();
+}
+
+function resetTracker() {
+  if (!confirm('Reset everything? This clears timer and history.')) return;
+  clearInterval(timerInterval);
+  currentStart = null;
+  localStorage.removeItem(STORAGE_KEY);
+  document.getElementById('trackerTimer').textContent = '00:00:00';
+  document.getElementById('trackerStatus').textContent = 'No active fast';
+  document.getElementById('btnStart').style.display = 'inline-flex';
+  document.getElementById('btnEnd').style.display = 'none';
+  updateProgress(0);
+  renderHistory();
+  renderStats();
+  renderChart();
+}
+
+renderHistory();
+renderStats();
+renderChart();
+</script>
+</body>
+</html>
