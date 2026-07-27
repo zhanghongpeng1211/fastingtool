@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trend Charts - Visualize Your Fasting Patterns</title>
+<meta name="description" content="Visualize your fasting hours, weight, and mood over time. Interactive charts with local storage.">
+<meta name="author" content="Sarah Patel">
+<meta property="og:title" content="Trend Charts - Visualize Your Fasting Patterns">
+<meta property="og:description" content="Visualize your fasting hours, weight, and mood over time. Interactive charts with local storage.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fastingtool.org/tools/fasting-trend-charts.html">
+<meta property="og:image" content="https://fastingtool.org/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fastingtool.org/tools/fasting-trend-charts.html">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Trend Charts","applicationCategory":"HealthApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Visualize fasting patterns with interactive charts.","url":"https://fastingtool.org/tools/fasting-trend-charts.html"}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fastingtool.org/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://fastingtool.org/tools/index.html"},
+    {"@type": "ListItem", "position": 3, "name": "📈 Trend Charts"}
+  ]
+}
+</script>
+</head>
+<body data-page="tool">
+<!-- Navigation -->
+<nav class="ft-nav">
+  <div class="ft-nav-container">
+    <a href="../index.html" class="ft-logo">
+      <div class="ft-logo-icon">⏱️</div>
+      <span>FastingTool.org</span>
+    </a>
+    <ul class="ft-nav-links" id="navLinks">
+      <li><a href="../index.html" class="">Home</a></li>
+      <li><a href="../tools/index.html" class="active">Tools</a></li>
+      <li><a href="../blog/index.html" class="">Blog</a></li>
+      <li><a href="../about.html" class="">About</a></li>
+      <li><a href="../contact.html" class="">Contact</a></li>
+      <li><a href="../faq.html" class="">FAQ</a></li>
+    </ul>
+    <button class="ft-mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+<div class="ft-breadcrumb"><a href="../../index.html">Home</a> <span class="ft-breadcrumb-sep">›</span> <a href="../index.html">Tools</a> <span class="ft-breadcrumb-sep">›</span> <span class="ft-breadcrumb-current">Trend Charts</span></div>
+<section class="ft-calc-section" style="padding-top:40px;"><div class="ft-calc-container">
+<div class="ft-section-header"><h1>📈 Trend Charts</h1><p>Visualize your fasting hours, weight, and mood over time. Add data manually or load from your session fasting-session-tracker.</p></div>
+<div class="ft-ad-slot" data-ad-slot="tool_top" data-ad="tool_top" class="ft-ad-slot has-content"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+<div class="ft-card"><div class="ft-card-title">➕ Add Data Point</div>
+<div class="ft-form-grid">
+<div class="ft-form-group"><label>Date</label><input type="date" id="tDate"></div>
+<div class="ft-form-group"><label>Fasting Hours</label><input type="number" id="tHours" placeholder="e.g. 18" step="0.5"></div>
+<div class="ft-form-group"><label>Weight (kg, optional)</label><input type="number" id="tWeight" placeholder="e.g. 72.5" step="0.1"></div>
+<div class="ft-form-group"><label>Mood (1-10, optional)</label><input type="number" id="tMood" placeholder="e.g. 7" min="1" max="10"></div>
+</div>
+<div style="margin-top:20px;display:flex;gap:8px;flex-wrap:wrap;"><button class="ft-btn ft-btn-primary" onclick="addDataPoint()">➕ Add Point</button><button class="ft-btn ft-btn-secondary" onclick="loadSampleTrends()">📊 Load Sample</button><button class="ft-btn ft-btn-danger" onclick="resetTrends()">🗑️ Reset</button></div>
+</div>
+<div class="ft-card"><div class="ft-card-title">📋 Data Table</div><div style="overflow-x:auto;"><table class="ft-table"><thead><tr><th>Date</th><th>Hours</th><th>Weight</th><th>Mood</th><th></th></tr></thead><tbody id="trendBody"><tr><td colspan="5" style="text-align:center;color:var(--ft-text-light);">No data yet.</td></tr></tbody></table></div><div style="margin-top:16px;"><button class="ft-btn ft-btn-secondary" onclick="exportTrends()">📥 Export CSV</button></div></div>
+<div class="ft-card"><div class="ft-card-title">📈 Fasting Hours Over Time</div><div class="ft-chart-container"><canvas id="trendChart" class="ft-chart-canvas" width="800" height="300"></canvas></div></div>
+<div class="ft-card"><div class="ft-card-title">😊 Mood Over Time</div><div class="ft-chart-container"><canvas id="moodChart" class="ft-chart-canvas" width="800" height="250"></canvas></div></div>
+
+<div class="ft-ad-slot has-content" data-ad-slot="tool_middle" data-ad="tool_middle"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+
+    <div class="ft-related-section"><h3 style="font-size:1.2rem;font-weight:700;color:var(--ft-dark);margin-bottom:20px;">Related Articles</h3><div class="ft-related-grid">
+<a href="../blog/mood-tracking-30-days.html" class="ft-related-card"><div class="ft-related-emoji">📊</div><div class="ft-related-title">I Tracked My Mood for 30 Days</div><div class="ft-related-meta">Data Visualization · 6 min</div></a>
+<a href="../blog/one-year-fasting-data-review.html" class="ft-related-card"><div class="ft-related-emoji">🎉</div><div class="ft-related-title">What 365 Days of Fasting Data Looks Like</div><div class="ft-related-meta">Year Review · 8 min</div></a>
+<a href="../blog/stopped-daily-weighing.html" class="ft-related-card"><div class="ft-related-emoji">⚖️</div><div class="ft-related-title">Why I Stopped Weighing Myself Every Day</div><div class="ft-related-meta">Weight Loss · 5 min</div></a>
+</div><h3 style="font-size:1.2rem;font-weight:700;color:var(--ft-dark);margin:32px 0 20px;">Recommended Tools</h3><div class="ft-related-grid">
+<a href="fasting-session-tracker.html" class="ft-related-card"><div class="ft-related-emoji">⏱️</div><div class="ft-related-title">Session Tracker</div><div class="ft-related-meta">Log your fasts</div></a>
+<a href="fasting-goal-planner.html" class="ft-related-card"><div class="ft-related-emoji">🎯</div><div class="ft-related-title">Goal Planner</div><div class="ft-related-meta">Set milestones</div></a>
+</div></div>
+<div style="text-align:center;margin-top:24px;font-size:0.8rem;color:var(--ft-text-light);">🔒 All data stays in your browser — we never see it.</div>
+</div></section>
+<!-- Footer -->
+<div class="ft-ad-slot" data-ad-slot="tool_bottom" data-ad="tool_bottom" class="ft-ad-slot has-content"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+
+<footer class="ft-footer">
+  <div class="ft-footer-container">
+    <div>
+      <div class="ft-footer-brand">
+        <div class="ft-logo-icon" style="width:28px; height:28px; font-size:0.9rem;">⏱️</div>
+        FastingTool.org
+      </div>
+      <p class="ft-footer-desc">A personal fasting experiment turned into a free tool for everyone. All data stays in your browser — we never see it.</p>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="../tools/fasting-session-tracker.html">Session Tracker</a></li>
+        <li><a href="../tools/metabolic-analyzer.html">Metabolic Analyzer</a></li>
+        <li><a href="../tools/eating-window-planner.html">Window Planner</a></li>
+        <li><a href="../tools/fasting-trend-charts.html">Trend Charts</a></li>
+        <li><a href="../tools/fasting-goal-planner.html">Goal Planner</a></li>
+        <li><a href="../tools/fasting-export-report.html">Export Report</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Content</h4>
+      <ul>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../disclosure.html">Disclosure</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../tools/index.html">Tools</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-footer-bottom">
+    <p>© 2024 FastingTool.org · Made with 💜 in Austin, TX · <a href="mailto:hello@fastingtool.org" style="color:rgba(167,139,250,0.8);">hello@fastingtool.org</a></p>
+    <p style="margin-top:8px; font-size:0.75rem; color:rgba(255,255,255,0.3);">Disclaimer: This tool is for informational purposes only. Consult a healthcare provider before starting any fasting regimen.</p>
+  </div>
+</footer>
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+<script src="../ads-loader.js"></script>
+<script>
+const TREND_KEY = 'ft_trends';
+function loadTrend() { try { return JSON.parse(localStorage.getItem(TREND_KEY)) || {data:[]}; } catch(e) { return {data:[]}; } }
+function saveTrend(d) { localStorage.setItem(TREND_KEY, JSON.stringify(d)); }
+
+function addDataPoint() {
+  const date = document.getElementById('tDate').value;
+  const hours = parseFloat(document.getElementById('tHours').value);
+  const weight = parseFloat(document.getElementById('tWeight').value) || null;
+  const mood = parseInt(document.getElementById('tMood').value) || null;
+  if (!date || !hours) { alert('Date and hours are required.'); return; }
+  const saved = loadTrend();
+  saved.data.push({date, hours, weight, mood});
+  saved.data.sort(function(a,b) { return a.date.localeCompare(b.date); });
+  saveTrend(saved);
+  renderTrendTable(); renderTrendChart(); renderMoodChart();
+  document.getElementById('tDate').value = ''; document.getElementById('tHours').value = ''; document.getElementById('tWeight').value = ''; document.getElementById('tMood').value = '';
+}
+
+function loadSampleTrends() {
+  const sample = {data:[
+    {date:'2024-06-01',hours:16,weight:74.2,mood:6},
+    {date:'2024-06-02',hours:18,weight:73.9,mood:7},
+    {date:'2024-06-03',hours:17,weight:73.8,mood:6},
+    {date:'2024-06-04',hours:19,weight:73.5,mood:8},
+    {date:'2024-06-05',hours:18,weight:73.4,mood:7},
+    {date:'2024-06-06',hours:16,weight:73.6,mood:5},
+    {date:'2024-06-07',hours:20,weight:73.1,mood:9},
+    {date:'2024-06-08',hours:18,weight:72.9,mood:7},
+    {date:'2024-06-09',hours:17,weight:72.8,mood:6},
+    {date:'2024-06-10',hours:19,weight:72.5,mood:8},
+    {date:'2024-06-11',hours:18,weight:72.4,mood:7},
+    {date:'2024-06-12',hours:16,weight:72.6,mood:6},
+    {date:'2024-06-13',hours:20,weight:72.2,mood:9},
+    {date:'2024-06-14',hours:18,weight:72.0,mood:8}
+  ]};
+  saveTrend(sample); renderTrendTable(); renderTrendChart(); renderMoodChart();
+}
+
+function renderTrendTable() {
+  const saved = loadTrend(); const tbody = document.getElementById('trendBody');
+  if (saved.data.length === 0) { tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--ft-text-light);">No data yet. Add points or load sample.</td></tr>'; return; }
+  tbody.innerHTML = saved.data.slice(-14).reverse().map(function(d) {
+    return '<tr><td>' + d.date + '</td><td>' + d.hours + 'h</td><td>' + (d.weight || '-') + '</td><td>' + (d.mood || '-') + '</td><td><button onclick="deletePoint(' + saved.data.indexOf(d) + ')" style="background:none;border:none;color:#dc2626;cursor:pointer;">🗑️</button></td></tr>';
+  }).join('');
+}
+
+function deletePoint(idx) {
+  const saved = loadTrend(); saved.data.splice(idx, 1); saveTrend(saved);
+  renderTrendTable(); renderTrendChart(); renderMoodChart();
+}
+
+function renderTrendChart() {
+  const saved = loadTrend(); const data = saved.data;
+  const canvas = document.getElementById('trendChart'); const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height; ctx.clearRect(0, 0, w, h);
+  if (data.length === 0) { ctx.fillStyle = '#9ca3af'; ctx.font = '14px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('No data yet. Add points or load sample.', w/2, h/2); return; }
+  const maxH = Math.max.apply(null, data.map(function(d){ return d.hours; }).concat([1]));
+  const pad = 40; const chartW = w - pad*2; const chartH = h - pad*2;
+  const stepX = chartW / (data.length - 1 || 1);
+  // Grid
+  ctx.strokeStyle = '#e9d5ff'; ctx.lineWidth = 1;
+  for (let i = 0; i <= 5; i++) { const y = pad + (i/5) * chartH; ctx.beginPath(); ctx.moveTo(pad, y); ctx.lineTo(w-pad, y); ctx.stroke(); }
+  // Line
+  ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 3; ctx.beginPath();
+  data.forEach(function(d, i) { const x = pad + i * stepX; const y = pad + chartH - (d.hours / maxH) * chartH * 0.8; if (i===0) ctx.moveTo(x, y); else ctx.lineTo(x, y); });
+  ctx.stroke();
+  // Points
+  data.forEach(function(d, i) { const x = pad + i * stepX; const y = pad + chartH - (d.hours / maxH) * chartH * 0.8; ctx.fillStyle = '#7c3aed'; ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI*2); ctx.fill(); ctx.fillStyle = '#1e1b4b'; ctx.font = '10px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(d.hours + 'h', x, y - 10); });
+  // X labels
+  ctx.fillStyle = '#6b7280'; ctx.font = '10px sans-serif';
+  data.forEach(function(d, i) { if (i % 2 === 0) { const x = pad + i * stepX; ctx.fillText(d.date.slice(5), x, h - 10); } });
+}
+
+function renderMoodChart() {
+  const saved = loadTrend(); const data = saved.data.filter(function(d){ return d.mood; });
+  const canvas = document.getElementById('moodChart'); const ctx = canvas.getContext('2d');
+  const w = canvas.width, h = canvas.height; ctx.clearRect(0, 0, w, h);
+  if (data.length === 0) { ctx.fillStyle = '#9ca3af'; ctx.font = '14px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('No mood data yet.', w/2, h/2); return; }
+  const pad = 40; const chartW = w - pad*2; const chartH = h - pad*2;
+  const stepX = chartW / (data.length - 1 || 1);
+  ctx.strokeStyle = '#a78bfa'; ctx.lineWidth = 2; ctx.beginPath();
+  data.forEach(function(d, i) { const x = pad + i * stepX; const y = pad + chartH - (d.mood / 10) * chartH * 0.8; if (i===0) ctx.moveTo(x, y); else ctx.lineTo(x, y); });
+  ctx.stroke();
+  data.forEach(function(d, i) { const x = pad + i * stepX; const y = pad + chartH - (d.mood / 10) * chartH * 0.8; ctx.fillStyle = '#a78bfa'; ctx.beginPath(); ctx.arc(x, y, 5, 0, Math.PI*2); ctx.fill(); });
+  ctx.fillStyle = '#6b7280'; ctx.font = '10px sans-serif';
+  data.forEach(function(d, i) { if (i % 2 === 0) { const x = pad + i * stepX; ctx.fillText(d.date.slice(5), x, h - 10); } });
+}
+
+function exportTrends() {
+  const saved = loadTrend(); if (saved.data.length === 0) { alert('No data to export.'); return; }
+  let csv = 'Date,Fasting Hours,Weight (kg),Mood (1-10)\n';
+  saved.data.forEach(function(d) { csv += d.date + ',' + d.hours + ',' + (d.weight || '') + ',' + (d.mood || '') + '\n'; });
+  const blob = new Blob([csv], {type: 'text/csv'}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'fasting-trends.csv'; a.click();
+}
+
+function resetTrends() { if (!confirm('Clear all trend data?')) return; localStorage.removeItem(TREND_KEY); renderTrendTable(); renderTrendChart(); renderMoodChart(); }
+
+renderTrendTable(); renderTrendChart(); renderMoodChart();
+</script>
+</body></html>
