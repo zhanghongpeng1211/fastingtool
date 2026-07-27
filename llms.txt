@@ -1,0 +1,55 @@
+# fastingtool
+
+Free online calculators and educational content. Not professional advice.
+
+## Pages
+- Home: https://fastingtool.org/
+- Tools: https://fastingtool.org/tools/
+- Blog: https://fastingtool.org/blog/
+- About: https://fastingtool.org/about.html
+- Contact: https://fastingtool.org/contact.html
+- FAQ: https://fastingtool.org/faq.html
+- Sitemap: https://fastingtool.org/sitemap.html
+
+## Tools
+- Goal Planner - Set Fasting Milestones: https://fastingtool.org/tools/fasting-goal-planner.html
+- Metabolic Analyzer - Fasting State Calculator: https://fastingtool.org/tools/metabolic-analyzer.html
+- Export Report - Download Your Fasting Data: https://fastingtool.org/tools/fasting-export-report.html
+- Fasting Session Tracker - Log Your Fasts: https://fastingtool.org/tools/fasting-session-tracker.html
+- Trend Charts - Visualize Your Fasting Patterns: https://fastingtool.org/tools/fasting-trend-charts.html
+- Eating Window Planner - Schedule Your Fasts: https://fastingtool.org/tools/eating-window-planner.html
+
+## Articles
+- Omad Diet Social Costs 2026 (omad-diet-social-costs-2026) -- I ate one meal a day for six months. OMAD. One Meal A Day. It worked for weight loss. I lost 22 pounds. My energy was stable. My focus was sharp. And my social life completely died. The problem was no -- July 23, 2026
+- Austin Heat Wave Fasting Break (austin-heat-wave-fasting-break) -- Why I Broke My Fast at 2 PM During Austin's Hottest Day on Record — And Why My Body Thanked Me for It By Dr. Marcus Whitfield, Austin, TX Published: Jun 28, 2026 The thermometer on my patio read 112°F -- July 07, 2026
+- Omad 30 Days Lost Muscle Not Fat (omad-30-days-lost-muscle-not-fat) -- The scale said I lost 6 pounds. I was thrilled. Six pounds in 30 days! The internet was right. One meal a day was the secret. The fasting subreddits had promised me effortless fat loss, mental clarity -- July 06, 2026
+- The 72 Hour Fast I Failed At Hour 54 (the-72-hour-fast-i-failed-at-hour-54) -- The 72-Hour Fast I Failed at Hour 54 (And Why I Am Glad I Did) I started the fast on a Thursday at 8:00 PM because I am an idiot and I thought the weekend would be easier. I had done 24-hour fasts. I -- June 25, 2026
+- I Tried Omad For 30 Days (i-tried-omad-for-30-days) -- I Tried OMAD for 30 Days. My Doctor Asked If I Was Okay. One meal a day. That's what OMAD means. It's the extreme end of intermittent fasting — the 23:1 protocol where you eat all your calories in a s -- June 24, 2026
+- I Tried a Cold Plunge After My Morning Fast. My Body Did Not Expect This. (cold-plunge-after-morning-fast) -- 48-degree water. 16-hour fast. My nervous system got a wake-up call that no meditation could prepare me for. -- August 15, 2024
+- Why I Stopped Eating at 6 PM During Austin's 110°F Summer (And What It Did to My Sleep) (stopped-eating-6pm-austin-summer) -- I moved my eating eating-window-planner to survive the heat. My body had opinions. So did my sleep fasting-session-tracker. -- August 08, 2024
+- I Joined a Sound Bath Session at BATHE on an Empty Stomach. Here's What Happened. (sound-bath-bathe-empty-stomach) -- Crystal bowls, an empty stomach, and a nervous system that got rebooted. I cried. I didn't know why. -- August 01, 2024
+- The Sober Curiosity Movement in Austin Is Making Fasting Easier (And Weirder) (sober-curiosity-austin-fasting) -- Mocktails, kombucha, and a secret club of people who don't drink. Turns out sobriety and fasting are the same thing. -- July 25, 2024
+- I Tracked My Gut Microbiome for 30 Days While Fasting. The Results Were Gross. (gut-microbiome-30-days-fasting) -- Poop in a tube. Mail it off. Get a bar chart of bacteria. My gut diversity went from 62 to 74 in 30 days. -- July 18, 2024
+- What SXSW Did to My Fasting Schedule (And How I Recovered in 7 Days) (sxsw-fasting-schedule-recovery) -- Free beer at 2 PM. Pizza at midnight. Three pounds gained. Here's my 7-day recovery plan that actually worked. -- July 12, 2024
+- What 365 Days of Fasting Data Looks Like (My Year in Review) | Sarah's Fasting Journal (one-year-fasting-data-review) -- One year. 365 days. I have data for 312 of them. Here's what it looks like when you visualize it. -- July 08, 2024
+- I Replaced My Morning Coffee With Breathwork for 21 Days. My Brain Felt Different. (replaced-coffee-breathwork-21-days) -- No coffee before noon. Just box breathing and a yoga mat. Day three was brutal. Day fourteen was a revelation. -- July 05, 2024
+- My Fasting Consistency Score Dropped to 43% Last Month. Here's Why. | Sarah's Fasting Journal (consistency-score-dropped) -- Last month, my fasting consistency score was 43%. The month before? 78%. What happened? Life happened. -- July 02, 2024
+- The Day I Did 108 Sun Salutations Fasted at Casa de Luz (And Couldn't Walk for 3 Days) (108-sun-salutations-fasted-casa-de-luz) -- Summer solstice. 108 sun salutations. Completely fasted. I finished. Then I couldn't walk for three days. -- June 28, 2024
+- How I Handle Hunger During a Fast (Without Cheating) | Sarah's Fasting Journal (handle-hunger-without-cheating) -- Hunger is the enemy of fasting. Not because it's dangerous — it's not — but because it makes you want to quit. -- June 28, 2024
+- Why I Started Fasting With the Moon Cycles (And Why My Roommate Thinks I'm Crazy) (fasting-moon-cycles-roommate) -- Full moon makes me hungry. New moon makes me effortless. My roommate calls me a witch. The data disagrees. -- June 22, 2024
+- The One Supplement That Actually Helped My Fasts (And Three That Didn't) | Sarah's Fasting Journal (supplements-that-worked) -- I've tried a lot of supplements. Like, a lot. Most of them did nothing noticeable. Three actually made things worse. One genuinely helped. -- June 22, 2024
+- I Tried Working Out Fasted for 30 Days. Here's What Happened. | Sarah's Fasting Journal (fasted-workout-30-days) -- Day 1, I felt weak. Like, embarrassingly weak. I dropped my usual weights by 20% and still struggled. -- June 18, 2024
+- I Ate Only Torchy's Tacos for a Week to Break My Fast. My Metabolism Was Confused. (torchys-tacos-omad-week) -- One taco a day. Seven days. Austin's most ridiculous experiment. My body adapted. My roommate called me Taco Girl. -- June 15, 2024
+- Why I Stopped Weighing Myself Every Day (And Started Tracking Trends Instead) | Sarah's Fasting Journal (stopped-daily-weighing) -- I was actually being neurotic. The problem with daily weighing is that weight fluctuates. A lot. -- June 12, 2024
+- My Doctor Told Me to Stop Fasting. Here's the Data I Showed Her. (doctor-told-me-stop-fasting) -- She said fasting was dangerous. I showed her my insulin sensitivity, HbA1c, and DEXA scan. She changed her mind. -- June 08, 2024
+- The Social Cost of Intermittent Fasting (And How I Deal With It) | Sarah's Fasting Journal (social-cost-of-fasting) -- I live in Austin. We have amazing food here. My friends love brunch. And I'm over here like 'yeah, I can't eat until 2 PM.' -- June 08, 2024
+- What Breaking My Fast With Different Foods Did to My Energy | Sarah's Fasting Journal (breaking-fast-food-energy) -- I ran a completely unscientific experiment for two weeks. Same fasting protocol, same sleep, same workout. The only variable: what I ate to break my fast. -- June 02, 2024
+- I Tracked My HGH and BDNF Levels for 60 Days of Fasting. The Numbers Are Real. (hgh-bdnf-60-days-fasting) -- 220% HGH increase. 28% BDNF boost. Blood tests don't lie. My brain was literally growing on a fasting schedule. -- June 01, 2024
+- I Tracked My Mood for 30 Days of Fasting. Here's the Chart. | Sarah's Fasting Journal (mood-tracking-30-days) -- Week 1 average mood: 6.2. Week 3 average mood: 7.8. The trend is hard to ignore. -- May 28, 2024
+- What a 7-Day Digital Detox + Fast Did to My Anxiety (And My Screen Time) (digital-detox-fast-anxiety) -- No screens. No food until 2 PM. I spent three days staring at walls like a caged animal. Then something shifted. -- May 25, 2024
+- Why I Switched From 16:8 to 18:6 (And Never Looked Back) | Sarah's Fasting Journal (switched-to-18-6) -- I ran this experiment for two weeks: 7 days of 16:8, 7 days of 18:6, same calories, same foods. The data was annoying. -- May 22, 2024
+- The Day I Accidentally Did a 36-Hour Fast (And Survived) | Sarah's Fasting Journal (accidental-36-hour-fast) -- By 9 PM, I had officially hit 24 hours. I remember texting my friend: 'I think I accidentally did a full day fast.' -- May 18, 2024
+- I Tried OMAD for 14 Days in Austin. My Social Life Nearly Died. (omad-14-days-austin-social) -- One meal a day. In a city that runs on brunch and happy hour. I learned that OMAD requires social sacrifice. -- May 18, 2024
+- Why I Started Tracking Every Single Hour of My Fast (And What I Discovered) | Sarah's Fasting Journal (why-i-track-every-hour) -- I thought I was 'pretty consistent' until I saw the numbers — and I was only hitting my target about 60% of the time. Brutal. -- May 15, 2024
+- How I Use the FastingTool Calculator to Plan Around ACL Festival (Without Gaining 5 Lbs) (acl-festival-fasting-plan) -- Ten days of music, heat, and food trucks. I shifted my eating-window-planner, set a maintenance goal, and came home at the same weight. -- May 12, 2024
+- My 2-Year Fasting Anniversary: What 730 Days of Data Actually Looks Like (2-year-fasting-anniversary) -- 22 pounds lost. HbA1c from 5.7 to 5.2. 730 sessions logged. The data doesn't judge. It just shows what happened. -- May 05, 2024
