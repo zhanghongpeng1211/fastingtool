@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Export Report - Download Your Fasting Data</title>
+<meta name="description" content="Download your fasting history as CSV, formatted fasting-export-report, or JSON. Share with your doctor or keep personal records.">
+<meta name="author" content="Sarah Patel">
+<meta property="og:title" content="Export Report - Download Your Fasting Data">
+<meta property="og:description" content="Download your fasting history as CSV, formatted fasting-export-report, or JSON. Share with your doctor or keep personal records.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fastingtool.org/tools/fasting-export-report.html">
+<meta property="og:image" content="https://fastingtool.org/images/og-default.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://fastingtool.org/tools/fasting-export-report.html">
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Export Report","applicationCategory":"HealthApplication","operatingSystem":"Web Browser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Export fasting data as CSV, text fasting-export-report, or JSON.","url":"https://fastingtool.org/tools/fasting-export-report.html"}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://fastingtool.org/"},
+    {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://fastingtool.org/tools/index.html"},
+    {"@type": "ListItem", "position": 3, "name": "📄 Export Report"}
+  ]
+}
+</script>
+</head>
+<body data-page="tool">
+<!-- Navigation -->
+<nav class="ft-nav">
+  <div class="ft-nav-container">
+    <a href="../index.html" class="ft-logo">
+      <div class="ft-logo-icon">⏱️</div>
+      <span>FastingTool.org</span>
+    </a>
+    <ul class="ft-nav-links" id="navLinks">
+      <li><a href="../index.html" class="">Home</a></li>
+      <li><a href="../tools/index.html" class="active">Tools</a></li>
+      <li><a href="../blog/index.html" class="">Blog</a></li>
+      <li><a href="../about.html" class="">About</a></li>
+      <li><a href="../contact.html" class="">Contact</a></li>
+      <li><a href="../faq.html" class="">FAQ</a></li>
+    </ul>
+    <button class="ft-mobile-menu-btn" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+<div class="ft-breadcrumb"><a href="../../index.html">Home</a> <span class="ft-breadcrumb-sep">›</span> <a href="../index.html">Tools</a> <span class="ft-breadcrumb-sep">›</span> <span class="ft-breadcrumb-current">Export Report</span></div>
+<section class="ft-calc-section" style="padding-top:40px;"><div class="ft-calc-container">
+<div class="ft-section-header"><h1>📄 Export Report</h1><p>Download your fasting data in multiple formats. Share with your doctor, keep backups, or analyze in your own spreadsheet.</p></div>
+<div class="ft-ad-slot" data-ad-slot="tool_top" data-ad="tool_top" class="ft-ad-slot has-content"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+<div class="ft-card"><div class="ft-card-title">📋 Generate Report</div><p style="margin-bottom:16px;color:var(--ft-text-light);">This compiles data from all tools: Session Tracker, Trend Charts, Goal Planner, Window Planner, and Metabolic Analyzer.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;"><button class="ft-btn ft-btn-primary" onclick="generateReport()">📄 Generate Text Report</button><button class="ft-btn ft-btn-secondary" onclick="downloadCSV()">📥 Download CSV</button><button class="ft-btn ft-btn-secondary" onclick="downloadJSON()">📥 Download JSON</button><button class="ft-btn ft-btn-danger" onclick="clearAllData()">🗑️ Clear ALL Data</button></div></div>
+<div class="ft-card" id="reportBox" style="display:none;"><div class="ft-card-title">📄 Your Report</div><pre id="reportText" style="background:var(--ft-light);padding:20px;border-radius:var(--ft-radius);font-family:monospace;font-size:0.85rem;line-height:1.6;overflow-x:auto;white-space:pre-wrap;"></pre><div style="margin-top:16px;"><button class="ft-btn ft-btn-secondary" onclick="downloadReport()">💾 Save as .txt</button></div></div>
+<div class="ft-card"><div class="ft-card-title">📊 What's Included</div>
+<div class="ft-grid-2">
+<div class="ft-card" style="margin-bottom:0;"><h3 style="font-size:1rem;margin-bottom:8px;">📥 CSV Export</h3><p style="font-size:0.9rem;color:var(--ft-text-light);">Session data in spreadsheet format. Open in Excel, Google Sheets, or any data tool.</p></div>
+<div class="ft-card" style="margin-bottom:0;"><h3 style="font-size:1rem;margin-bottom:8px;">📥 JSON Export</h3><p style="font-size:0.9rem;color:var(--ft-text-light);">Complete data dump from all tools. For developers or backup purposes.</p></div>
+<div class="ft-card" style="margin-bottom:0;"><h3 style="font-size:1rem;margin-bottom:8px;">📄 Text Report</h3><p style="font-size:0.9rem;color:var(--ft-text-light);">Human-readable summary. Perfect for sharing with your doctor or nutritionist.</p></div>
+<div class="ft-card" style="margin-bottom:0;"><h3 style="font-size:1rem;margin-bottom:8px;">🔒 Privacy Note</h3><p style="font-size:0.9rem;color:var(--ft-text-light);">All exports are generated locally in your browser. Nothing is uploaded to any server.</p></div>
+</div></div>
+
+<div class="ft-ad-slot has-content" data-ad-slot="tool_middle" data-ad="tool_middle"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+
+    <div class="ft-related-section"><h3 style="font-size:1.2rem;font-weight:700;color:var(--ft-dark);margin-bottom:20px;">Related Articles</h3><div class="ft-related-grid">
+<a href="../blog/one-year-fasting-data-review.html" class="ft-related-card"><div class="ft-related-emoji">🎉</div><div class="ft-related-title">What 365 Days of Fasting Data Looks Like</div><div class="ft-related-meta">Year Review · 8 min</div></a>
+<a href="../blog/why-i-track-every-hour.html" class="ft-related-card"><div class="ft-related-emoji">⏱️</div><div class="ft-related-title">Why I Started Tracking Every Single Hour</div><div class="ft-related-meta">Fasting Experiments · 6 min</div></a>
+<a href="../blog/mood-tracking-30-days.html" class="ft-related-card"><div class="ft-related-emoji">📊</div><div class="ft-related-title">I Tracked My Mood for 30 Days</div><div class="ft-related-meta">Data Visualization · 6 min</div></a>
+</div><h3 style="font-size:1.2rem;font-weight:700;color:var(--ft-dark);margin:32px 0 20px;">Recommended Tools</h3><div class="ft-related-grid">
+<a href="fasting-session-tracker.html" class="ft-related-card"><div class="ft-related-emoji">⏱️</div><div class="ft-related-title">Session Tracker</div><div class="ft-related-meta">Log your fasts</div></a>
+<a href="fasting-trend-charts.html" class="ft-related-card"><div class="ft-related-emoji">📈</div><div class="ft-related-title">Trend Charts</div><div class="ft-related-meta">Visualize patterns</div></a>
+</div></div>
+<div style="text-align:center;margin-top:24px;font-size:0.8rem;color:var(--ft-text-light);">🔒 All data stays in your browser — we never see it.</div>
+</div></section>
+<!-- Footer -->
+<div class="ft-ad-slot" data-ad-slot="tool_bottom" data-ad="tool_bottom" class="ft-ad-slot has-content"><span class="ft-ad-label">Advertisement</span><span class="ft-ad-placeholder">Ad space reserved</span></div>
+
+<footer class="ft-footer">
+  <div class="ft-footer-container">
+    <div>
+      <div class="ft-footer-brand">
+        <div class="ft-logo-icon" style="width:28px; height:28px; font-size:0.9rem;">⏱️</div>
+        FastingTool.org
+      </div>
+      <p class="ft-footer-desc">A personal fasting experiment turned into a free tool for everyone. All data stays in your browser — we never see it.</p>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Tools</h4>
+      <ul>
+        <li><a href="../tools/fasting-session-tracker.html">Session Tracker</a></li>
+        <li><a href="../tools/metabolic-analyzer.html">Metabolic Analyzer</a></li>
+        <li><a href="../tools/eating-window-planner.html">Window Planner</a></li>
+        <li><a href="../tools/fasting-trend-charts.html">Trend Charts</a></li>
+        <li><a href="../tools/fasting-goal-planner.html">Goal Planner</a></li>
+        <li><a href="../tools/fasting-export-report.html">Export Report</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Content</h4>
+      <ul>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../faq.html">FAQ</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Legal</h4>
+      <ul>
+        <li><a href="../privacy.html">Privacy</a></li>
+        <li><a href="../terms.html">Terms</a></li>
+        <li><a href="../disclaimer.html">Disclaimer</a></li>
+        <li><a href="../disclosure.html">Disclosure</a></li>
+      </ul>
+    </div>
+    <div class="ft-footer-links">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../tools/index.html">Tools</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../sitemap.html">Sitemap</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-footer-bottom">
+    <p>© 2024 FastingTool.org · Made with 💜 in Austin, TX · <a href="mailto:hello@fastingtool.org" style="color:rgba(167,139,250,0.8);">hello@fastingtool.org</a></p>
+    <p style="margin-top:8px; font-size:0.75rem; color:rgba(255,255,255,0.3);">Disclaimer: This tool is for informational purposes only. Consult a healthcare provider before starting any fasting regimen.</p>
+  </div>
+</footer>
+<script>
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('active');
+}
+</script>
+<script src="../ads-loader.js"></script>
+<script>
+function generateReport() {
+  const sessions = JSON.parse(localStorage.getItem('ft_sessions') || '[]');
+  const fasting-trend-charts = JSON.parse(localStorage.getItem('ft_trends') || '{"data":[]}');
+  const fasting-goal-planner = JSON.parse(localStorage.getItem('ft_goals') || '{}');
+  const eating-window-planner = JSON.parse(localStorage.getItem('ft_window') || '{}');
+  const meta = JSON.parse(localStorage.getItem('ft_metabolic') || '{}');
+
+  let fasting-export-report = 'FASTINGTOOL.ORG — PERSONAL REPORT
+';
+  fasting-export-report += 'Generated: ' + new Date().toLocaleString() + '
+';
+  fasting-export-report += '========================================
+
+';
+
+  fasting-export-report += 'SESSION TRACKER
+';
+  fasting-export-report += 'Total sessions: ' + sessions.length + '
+';
+  if (sessions.length > 0) {
+    const avg = sessions.reduce(function(a,s){return a+s.duration;},0)/sessions.length;
+    const best = Math.max.apply(null, sessions.map(function(s){return s.duration;}));
+    const hits = sessions.filter(function(s){return s.status==='hit';}).length;
+    fasting-export-report += 'Average duration: ' + Math.floor(avg/3600) + 'h ' + Math.floor((avg%3600)/60) + 'm
+';
+    fasting-export-report += 'Best fast: ' + Math.floor(best/3600) + 'h ' + Math.floor((best%3600)/60) + 'm
+';
+    fasting-export-report += 'Consistency: ' + Math.round(hits/sessions.length*100) + '%
+';
+  }
+  fasting-export-report += '
+TREND DATA
+';
+  fasting-export-report += 'Total entries: ' + fasting-trend-charts.data.length + '
+';
+  if (fasting-trend-charts.data.length > 0) {
+    const avgHours = fasting-trend-charts.data.reduce(function(a,d){return a+d.hours;},0)/fasting-trend-charts.data.length;
+    fasting-export-report += 'Average fasting hours: ' + avgHours.toFixed(1) + 'h
+';
+  }
+  fasting-export-report += '
+GOALS
+';
+  if (fasting-goal-planner.last) {
+    fasting-export-report += 'Current: ' + fasting-goal-planner.last.current + ' kg → Target: ' + fasting-goal-planner.last.target + ' kg
+';
+    fasting-export-report += 'Protocol: ' + fasting-goal-planner.last.protocol + ':8 | Consistency: ' + fasting-goal-planner.last.consistency + '%
+';
+    fasting-export-report += 'Estimated: ' + fasting-goal-planner.last.weeksNeeded + ' weeks | Target date: ' + fasting-goal-planner.last.endDate + '
+';
+  } else { fasting-export-report += 'No fasting-goal-planner set yet.
+'; }
+  fasting-export-report += '
+EATING WINDOW
+';
+  if (eating-window-planner.last) {
+    fasting-export-report += 'Protocol: ' + eating-window-planner.last.protocol + ':8
+';
+    fasting-export-report += 'Break fast: ' + eating-window-planner.last.bfTime + ' | Last meal: ' + eating-window-planner.last.lmTime + '
+';
+  } else { fasting-export-report += 'No eating-window-planner plan saved.
+'; }
+  fasting-export-report += '
+METABOLIC PROFILE
+';
+  if (meta.last) {
+    fasting-export-report += 'BMR: ' + Math.round(meta.last.bmr) + ' kcal/day
+';
+    fasting-export-report += 'TDEE: ' + Math.round(meta.last.tdee) + ' kcal/day
+';
+  } else { fasting-export-report += 'No metabolic-analyzer analysis saved.
+'; }
+
+  document.getElementById('reportText').textContent = fasting-export-report;
+  document.getElementById('reportBox').style.display = 'block';
+}
+
+function downloadReport() {
+  const text = document.getElementById('reportText').textContent;
+  if (!text) { alert('Generate a fasting-export-report first.'); return; }
+  const blob = new Blob([text], {type: 'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'fasting-report.txt';
+  a.click();
+}
+
+function downloadCSV() {
+  const sessions = JSON.parse(localStorage.getItem('ft_sessions') || '[]');
+  if (sessions.length === 0) { alert('No session data to export.'); return; }
+  let csv = 'Date,Start,End,Duration (hours),Target (hours),Status
+';
+  sessions.forEach(function(s) { csv += s.date + ',' + s.start + ',' + s.end + ',' + (s.duration/3600).toFixed(2) + ',' + (s.target/3600).toFixed(0) + ',' + s.status + '
+'; });
+  const blob = new Blob([csv], {type: 'text/csv'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'fasting-export.csv'; a.click();
+}
+
+function downloadJSON() {
+  const data = {
+    sessions: JSON.parse(localStorage.getItem('ft_sessions') || '[]'),
+    fasting-trend-charts: JSON.parse(localStorage.getItem('ft_trends') || '{"data":[]}'),
+    fasting-goal-planner: JSON.parse(localStorage.getItem('ft_goals') || '{}'),
+    eating-window-planner: JSON.parse(localStorage.getItem('ft_window') || '{}'),
+    metabolic-analyzer: JSON.parse(localStorage.getItem('ft_metabolic') || '{}')
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'fasting-data.json'; a.click();
+}
+
+function clearAllData() {
+  if (!confirm('WARNING: This will delete ALL your fasting data across ALL tools. This cannot be undone. Are you sure?')) return;
+  localStorage.removeItem('ft_sessions');
+  localStorage.removeItem('ft_trends');
+  localStorage.removeItem('ft_goals');
+  localStorage.removeItem('ft_window');
+  localStorage.removeItem('ft_metabolic');
+  document.getElementById('reportText').textContent = '';
+  document.getElementById('reportBox').style.display = 'none';
+  alert('All data cleared.');
+}
+</script>
+</body></html>
